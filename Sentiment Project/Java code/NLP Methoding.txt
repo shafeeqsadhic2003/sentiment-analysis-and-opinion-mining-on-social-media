@@ -1,0 +1,6 @@
+vectorizer = TfidfVectorizer(max_features=5000, stop_words='english')
+X_train = vectorizer.fit_transform(train_df['content'])
+X_test = vectorizer.transform(test_df['content'])
+y_train = train_df['target']
+y_test = test_df['target']
+X_train

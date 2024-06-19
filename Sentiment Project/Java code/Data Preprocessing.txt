@@ -1,0 +1,24 @@
+file_path = '/content/drive/MyDrive/colab input/twitter_training.csv'
+df = pd.read_csv(file_path, header=None)
+df.columns=["id","entity","target","content"]
+df
+df["target"]=df["target"].str.replace('Positive',"1")
+df["target"]=df["target"].str.replace('Negative',"0")
+df["target"]=df["target"].str.replace('Neutral',"3")
+df["target"]=df["target"].str.replace('Irrelevant',"4")
+df["target"].astype(int)
+df["target"].value_counts().plot.bar()
+df=df[["target","content"]]
+df
+df.isna().sum()
+df.dropna()
+def text_processing(content):
+    content=str(content).split(" ")
+    temp=[]
+    for i in content:
+        if i.isalpha():
+            temp.append(i)
+    return " ".join(temp)
+df["content"]=df["content"].apply(text_processing)
+df=df.sample(frac=1)
+df

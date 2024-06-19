@@ -1,0 +1,16 @@
+best_model.predict(["i love this thing a lot"])
+best_model.predict(["i hate this thing a lot"])
+best_model.predict(["nan"])
+pd.DataFrame(y_pred).value_counts().plot.bar()
+def con(n):
+    if int(n[0])==1:
+        return "Positive"
+    if int(n[0])==0:
+        return "negative"
+    if int(n[0])==2:
+        return "neutral"
+    if int(n[0])==3:
+        return "Irrelant"
+    return " "
+a="se"
+con(best_model.predict([a])[0])

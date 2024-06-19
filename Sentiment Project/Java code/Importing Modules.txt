@@ -1,0 +1,14 @@
+from google.colab import drive
+drive.mount("/content/drive")
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import make_pipeline
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.utils import shuffle
